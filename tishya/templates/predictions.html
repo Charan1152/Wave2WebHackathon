@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette|Ubuntu Condensed|Arimo">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body{
+            text-align: center;
+            background-color:lightyellow;
+            padding: 50px;
+        }
+        h1{
+            font-family: 'Ubuntu Condensed';
+            font-size: xx-large;
+        }
+        h2{
+            font-family: 'Courgette';
+            font-size: medium;
+        }
+        .pred{
+            font-family: 'Arimo';
+        }
+        .container-md{
+            width: 500px;
+        }
+        label{
+            font-family: 'Ubuntu Condensed';
+            font-size: x-large;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Identification Method Using Machine Learning</h1>
+    <h2>A project by - P. Sravani Durga | V. Tishya Rakshita | R. Sushma | N. Pravallika</h2>
+    <br/>
+    <a href="/">Back to Home</a>
+    <hr><br/>
+    <div class="results">
+        <label>Prediction Results</label>
+        <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">Feature Names</th>
+                <th scope="col">Values Entered</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in zip(["Age","Education","Cigarettes Per Day","BP Medicines","Prevalent Stroke","Prevalent Hypertension","Total Cholestrol","Systolic BP","Diastolic BP","BMI","Heart Rate","Glucose","Gender","Current Smoker","Diabetes"],l) %}  
+              <tr>
+                <th scope="row">{{i[0]}}</th>
+                <td>{{i[1]}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <label>Prediction 1(Using Random Forest Classifer)</label>
+          {% if pred1[0] == 0 %}
+            <h5 class="text-success">No Chances of Heart Diseases -> 0(Output)</h5>
+          {% else %}
+            <h5 class="text-danger">There is a chance of Heart Disease, Please Consult Your Doctor -> 1(Output)</h5>
+          {% endif %}
+
+          <label>Prediction 2(Using Logistic Regression)</label>
+          {% if pred2[0] == 0 %}
+            <h5 class="text-success">No Chances of Heart Diseases -> 0(Output)</h5>
+          {% else %}
+            <h5 class="text-danger">There is a chance of Heart Disease, Please Consult Your Doctor -> 1(Output)</h5>
+          {% endif %}
+
+          <label>Prediction 3(Using K Nearest Neighbors Classifer)</label>
+          {% if pred3[0] == 0 %}
+            <h5 class="text-success">No Chances of Heart Diseases -> 0(Output)</h5>
+          {% else %}
+            <h5 class="text-danger">There is a chance of Heart Disease, Please Consult Your Doctor -> 1(Output)</h5>
+          {% endif %}
+    </div>
+    </body>
+</html>

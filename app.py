@@ -19,5 +19,6 @@ def predict():
     arr = np.array([[data1,data2,data3,data4]])
     pred = model.predict(arr)
     return render_template('after.html',data=pred)
+
 if __name__ == '__main__':
-    app.run(port =8000,debug=True)
+    app.run(port=5000,debug=True)
